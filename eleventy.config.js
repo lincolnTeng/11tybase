@@ -81,16 +81,18 @@ module.exports = function(eleventyConfig) {
 //add video pages and collects
 	eleventyConfig.addCollection("videos", function(collection) {
 		  			
-						const videos = collection.getAll()[0].data.videos;
+		 
+					  // 按上传日期降序排列
+					  videos.sort((a, b) => new Date(b.kvtime) - new Date(a.kvtime));
 					
 					  for (const video of videos) {
-					    collection.addNode({
-					      layout: "_includes/video.njk",
-					      data: { video },
-					      date: new Date(video.kvtime), // 设置视频上传日期作为页面日期
-					      permalink: `/videos/{{ video.year }}/{{ video.month }}{{ video.day }}/{{ video.id }}/` // 重写permalink
-					    });
-					  }
+									    collection.addNode({
+									      layout: "_includes/video.njk",
+									      data: { video },
+									      date: new Date(video.kvtime ),
+									      permalink: `/videos/{{ video.year }}/{{ video.month }}{{ video.day }}/{{ video.id }}/`
+									    });
+						  }
 		
 });
 
