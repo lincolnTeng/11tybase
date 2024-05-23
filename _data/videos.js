@@ -1,5 +1,5 @@
 module.exports = async () => {
-  const kvNamespace = await VIDEOINFO.get("NAMESPACE", "json");
+  const kvNamespace = await ELEVENTY_KV.get("VIDEOINFO", "json");
   const videoKeys = await kvNamespace.list().keys;
 
   const videos = [];
