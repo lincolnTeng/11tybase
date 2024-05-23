@@ -78,6 +78,24 @@ module.exports = function(eleventyConfig) {
 		return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
 	});
 
+//add video pages and collects
+	eleventyConfig.addCollection("videos", function(collection) {
+		  			
+						const videos = collection.getAll()[0].data.videos;
+					
+					  for (const video of videos) {
+					    collection.addNode({
+					      layout: "_includes/video.njk",
+					      data: { video },
+					      date: new Date(video.kvtime), // 设置视频上传日期作为页面日期
+					      permalink: `/videos/{{ video.year }}/{{ video.month }}{{ video.day }}/{{ video.id }}/` // 重写permalink
+					    });
+					  }
+		
+});
+
+
+	
 	// Customize Markdown library settings:
 	eleventyConfig.amendLibrary("md", mdLib => {
 		mdLib.use(markdownItAnchor, {
@@ -96,6 +114,11 @@ module.exports = function(eleventyConfig) {
 		return (new Date()).toISOString();
 	})
 
+
+
+
+
+	
 	// Features to make your build faster (when you need them)
 
 	// If your passthrough copy gets heavy and cumbersome, add this line
