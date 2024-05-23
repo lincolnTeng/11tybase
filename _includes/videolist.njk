@@ -1,0 +1,27 @@
+---
+pagination:
+  data: collections.videos
+  size: 10
+  alias: videos
+  reverse: true
+permalink: "/videos/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumber + 1 }}/{% endif %}"
+---
+
+<h1>视频列表</h1>
+
+{% for video in videos %}
+<div>
+  <h2><a href="/videos/{{ video.year }}/{{ video.month }}{{ video.day }}/{{ video.id }}/">{{ video.title }}</a></h2>
+  <p>{{ video.desc | truncate(100) }}</p>
+  <p>上传日期: {{ video.year }}-{{ video.month }}-{{ video.day }}</p>
+</div>
+{% endfor %}
+
+<nav>
+  {% if pagination.href.previous %}
+    <a href="{{ pagination.href.previous }}">上一页</a>
+  {% endif %}
+  {% if pagination.href.next %}
+    <a href="{{ pagination.href.next }}">下一页</a>
+  {% endif %}
+</nav>
