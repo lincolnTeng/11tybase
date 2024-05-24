@@ -78,24 +78,15 @@ module.exports = function(eleventyConfig) {
 		return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
 	});
 
-//add video pages and collects
-	eleventyConfig.addCollection("videos", function(collection) {
-		  			
-		 
-					  // 按上传日期降序排列
-					  videos.sort((a, b) => new Date(b.kvtime) - new Date(a.kvtime));
-					
-					  for (const video of videos) {
-									    collection.addNode({
-									      layout: "_includes/video.njk",
-									      data: { video },
-									      date: new Date(video.kvtime ),
-									      permalink: `/videos/{{ video.year }}/{{ video.month }}{{ video.day }}/{{ video.id }}/`
-									    });
-						  }
-		
-});
-
+	
+	// add videosInfo data for global  
+	
+   eleventyConfig.addGlobalData("videoInfo", async () => {
+    const workerURL = "https://videokv.fordenzag.workers.dev/all";
+    const response = await fetch(workerURL);
+    const data = await response.json();
+    return data;
+  });
 
 	
 	// Customize Markdown library settings:
@@ -114,7 +105,7 @@ module.exports = function(eleventyConfig) {
 
 	eleventyConfig.addShortcode("currentBuildDate", () => {
 		return (new Date()).toISOString();
-	})
+	});
 
 
 
