@@ -80,6 +80,7 @@ module.exports = function(eleventyConfig) {
 
 	
 	// add videosInfo data for global  
+	const fetch = require("node-fetch");
 	
    eleventyConfig.addGlobalData("videoInfo", async () => {
     const workerURL = "https://videokv.fordenzag.workers.dev/all";
