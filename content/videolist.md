@@ -2,18 +2,14 @@
 
 
 <!-- video-list.njk -->
-<ul>
-  {% for videoKey, videos in videoInfo %}
-    <li>
-      <h2>{{ videoKey }}</h2>
+ 
       <ul>
-        {% for video in videos %}
+        {% for video in videoInfo %}
           <li>
             <h3>{{ video.title }}</h3>
-            <p>{{ video.description }}</p>
+            <p>{{ video.desc }}</p>
+            <p><img src={{ video.img }}> </p>
           </li>
         {% endfor %}
       </ul>
-    </li>
-  {% endfor %}
-</ul>
+  
