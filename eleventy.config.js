@@ -119,7 +119,7 @@ module.exports = function(eleventyConfig) {
 						}
 		 				return vtimemap ;
 
-	 }
+	 }); 
 // video info pages
  
 
