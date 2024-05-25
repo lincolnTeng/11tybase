@@ -1,0 +1,13 @@
+---
+pagination:
+  data: videoInfo
+  size: 1 
+  alias: item
+permalink:/videoitem/"{{item.videoid | slugify }}/"
+---
+<ul>
+   <li>{{ item .title}}</li>
+<li>{{ item .videoid}}</li>
+<li><img src={{item.img}}></li>
+<li><p>{{item.desc}}></li>
+ </ul>
