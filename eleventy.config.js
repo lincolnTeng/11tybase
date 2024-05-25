@@ -110,7 +110,9 @@ eleventyConfig.addCollection('videoinfo', (collection) => {
 // video info pages
  
 eleventyConfig.addCollection('videoPages', (collection) => {
-  const videoinfoColl = collection.getCollection('videoinfo');
+   const videoEntries = collection.getFilteredByTag('videoinfo');
+ 
+	
 
   // 3. 使用pagination集合helper进行分页
   return videoinfoColl.pagination(20);  
