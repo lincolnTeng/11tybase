@@ -99,7 +99,7 @@ eleventyConfig.addCollection('videoinfo', (collection) => {
   	description: info.description,
       img:info.img,
 	   kvtime:info.kvtime,
-      eleventyTags: ['videoinfo'] ，
+      eleventyTag: [`videoinfo ` ],
 	 outputPath: `videos/${info.videoid}/index.html`, // 单个Video页面路径
       url: `/videos/${info.videoid}/`, // 对应URL路径  
       eleventyExcludeFromCollections: true // 将其从其他集合中排除
