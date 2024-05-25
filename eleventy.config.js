@@ -108,9 +108,14 @@ eleventyConfig.addCollection('videoinfo', (collection) => {
 });
 	
 // video info pages
+ 
 eleventyConfig.addCollection('videoPages', (collection) => {
-  return collection.getFilteredByGlob('videoInfo').paginate(20);
+  const videoinfoColl = collection.getCollection('videoinfo');
+
+  // 3. 使用pagination集合helper进行分页
+  return videoinfoColl.pagination(20);  
 });
+
 	
 	
 	// Customize Markdown library settings:
