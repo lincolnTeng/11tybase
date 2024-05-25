@@ -113,20 +113,12 @@ eleventyConfig.addCollection('videoPages', (collection) => {
    const videoEntries = collection.getFilteredByTag('videoinfo');
   
  // return videoEntries.pagination(20);
-
-  // 2. 创建分页器
-  const paginator = collection.pagination(videoEntries);
-
-  // 3. 设置分页器选项
-  paginator.size = 20; // 每页 20 个条目
-  paginator.permalink = '/videos/page/{{ pagination.pageNumber | plus: 1 }}/'; // 分页链接格式
-  paginator.data = 'collections.videoPages'; // 在模板中使用 collections.videoPages 访问分页数据
-  paginator.alias = 'videos'; // 在模板中使用 videos 访问当前页面的条目
-
-  // 4. 返回分页结果
-  return paginator.getPagesPayload();
-
-
+  return collection.getPaginatedEntries(videoEntries, {
+    size: 20, // 每页 20 个条目
+    permalink: "/videos/page/{{ pagination.pageNumber | plus: 1 }}/", // 分页链接格式
+    data: "collections.videoPages", // 模板访问分页数据
+    alias: "videos" // 模板遍历当前页面条目
+  });
  
  
 });
