@@ -1,12 +1,15 @@
 ---
+layout: layouts/base.njk
 pagination:
-  data: collections.videoPages
+  data: collections.videoPages 
   size: 20
-  alias: videos
-permalink: /videos/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | plus: 1 }}/{% endif %}index.html
+  alias: videos  
+permalink: >
+  /videos/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | plus: 1 }}/{% endif %}index.html
 ---
 
-<h1>所有视频</h1>
+ 
+<h1>all video </h1>
 <ul>
 {% for video in videos %}
   <li><a href="{{ video.url }}">{{ video.title }}</a></li>
