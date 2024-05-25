@@ -98,17 +98,20 @@ eleventyConfig.addCollection('videoinfo', async(collection) => {
 
 	
   for (let info of vi ) {
-    collection.addNode({
-      
-	 title: info.title,
-  	description: info.description,
-      img:info.img,
-	   kvtime:info.kvtime,
-      eleventyTag: [`videoinfo ` ],
-	 outputPath: `videos/${info.videoid}/index.html`, // 单个Video页面路径
-      url: `/videos/${info.videoid}/`, // 对应URL路径  
-      eleventyExcludeFromCollections: true // 将其从其他集合中排除
-    });
+
+		   collection.push({ // Add each data item to the collection array
+     title: info.title,
+     description: info.description,
+     img:info.img,
+     kvtime:info.kvtime,
+     eleventyTag: [`videoinfo ` ],
+     outputPath: `videos/${info.videoid}/index.html`,
+     url: `/videos/${info.videoid}/`,
+     eleventyExcludeFromCollections: true
+   });
+
+
+		
   }
 });
 	
