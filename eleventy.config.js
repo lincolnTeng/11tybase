@@ -113,11 +113,15 @@ eleventyConfig.addCollection('videoPages', (collection) => {
    const videoEntries = collection.getFilteredByTag('videoinfo');
   
  // return videoEntries.pagination(20);
-  return collection.pagination.get(videoEntries, {
-    size: 20
+ 
+	  return collectionApi.pagination.addPages(videoEntries, {
+    size: 20, // 每页 20 个条目
+    pagination: {
+      data: 'collections.videoPages',
+      alias: 'videos',
+      // 其他分页选项
+    }
   });
-
-	
  
 });
 
