@@ -92,7 +92,12 @@ module.exports = function(eleventyConfig) {
   // add videoinfo collection  for pages & solo video info
 
 eleventyConfig.addCollection('videoinfo', (collection) => {
-  for (let info of videoInfo) {
+    const workerURL = "https://videokv.fordenzag.workers.dev/all";
+    const response = await fetch(workerURL);
+    const vi = await response.json();
+
+	
+  for (let info of vi ) {
     collection.addNode({
       
 	 title: info.title,
