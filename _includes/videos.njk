@@ -1,0 +1,35 @@
+---
+pagination:
+  data: collections.videoinfo
+  size: 20
+  alias: videos
+permalink: /videos/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber }}/{% endif %}index.html
+---
+
+<h1>视频列表</h1>
+
+<ul>
+  {% for video in videos %}
+    <li>
+      <a href="{{ video.url }}">{{ video.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+<nav>
+  {% if pagination.href.previous %}
+    <a href="{{ pagination.href.previous }}">上一页</a>
+  {% endif %}
+
+  {% for pageEntry in pagination.pages %}
+    {% if page.url == pagination.hrefs[ loop.index0 ] %}
+      <span>{{ loop.index }}</span>
+    {% else %}
+      <a href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if pagination.href.next %}
+    <a href="{{ pagination.href.next }}">下一页</a>
+  {% endif %}
+</nav>
