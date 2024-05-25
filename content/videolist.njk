@@ -11,8 +11,9 @@ eleventyNavigation:
           <li>
             <h3>{{ video.title }}</h3>
             <p>{{ video.desc }}</p>
-            <p><img src={{ video.img }} > </p>
-			<p> <a href =/videoitem/{{video.videoid}}/>src </a></p>
-          </li>
+            <p><img src={{ video.img }} > </p> </li>
+	{% set vUrl %}/videoitem/{{ video.videoid | slugify }}/{% endset %}
+	<li><a href="{{ vUrl }}" class="post-tag">src of {{ video.title }}</a></li>
+			 
         {% endfor %}
       </ul>
