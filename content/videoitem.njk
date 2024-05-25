@@ -3,14 +3,14 @@ layout: layouts/home.njk
 pagination:
   data: videoInfo
   size: 1 
-  alias: item
-permalink: "/videoitem/{{item.videoid | slugify }}/"
+  alias: vi
+permalink: "/videoitem/{{vi.videoid | slugify }}/"
 ---
 
 
 <ul>
-   <li>{{ item .title}}</li>
-<li>{{ item .videoid}}</li>
-<li><img src={{item.img}}></li>
-<li><p>{{item.desc}}></li>
+   <li>{{ vi .title}}</li>
+<li>{{ vi .videoid}}</li>
+<li><img src={{vi.img}}></li>
+<li><p>{{vi.desc}}></li>
  </ul>
