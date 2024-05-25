@@ -109,19 +109,6 @@ eleventyConfig.addCollection('videoinfo', (collection) => {
 	
 // video info pages
  
-eleventyConfig.addCollection('videoPages', (collection) => {
-   const videoEntries = collection.getFilteredByTag('videoinfo');
-  const paginator = collection.getPaginatedCollection(videoEntries, {
-    size: 20, // 每页 20 个条目
-    permalink: "/videos/page/{{ pagination.pageNumber | plus: 1 }}/", // 分页链接格式
-    data: "collections.videoPages", // 模板访问分页数据
-    alias: "videos" // 模板遍历当前页面条目
-  });
-
-  // 3. 返回分页结果
-  return paginator;
- 
-});
 
 	
 	
