@@ -90,31 +90,36 @@ module.exports = function(eleventyConfig) {
   });
 
   // add videoinfo collection  for pages & solo video info
+   eleventyConfig.addGlobalData("videoInfo", async () => {
 
-eleventyConfig.addCollection('videoinfo', async(collection) => {
-    const workerURL = "https://videokv.fordenzag.workers.dev/all";
-    const response = await fetch(workerURL);
-    const vi = await response.json();
+		     const workerURL = "https://videokv.fordenzag.workers.dev/all";
+		    const response = await fetch(workerURL);
+		    const data = await response.json();
+		 
+						 const vtimemap = {};
+						
+						for (const video of data ) {
+						  const date = new Date(video.kvtime);
+						  const year = date.getFullYear();
+						  const month = date.getMonth() + 1; // Month starts from 0
+						  const day = date.getDate();
+						
+						  const yearKey = `year${year}`;
+						  const monthKey = `${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}`;
+						
+						  if (!vtimemap[yearKey]) {
+						    vtimemap[yearKey] = {};
+						  }
+						
+						  if (!vtimemap[yearKey][monthKey]) {
+						    vtimemap[yearKey][monthKey] = [];
+						  }
 
-	
-  for (let info of vi ) {
+						  vtimemap[yearKey][monthKey].push(video.videoid);
+						}
+		 				return vtimemap ;
 
-		   collection.push({ // Add each data item to the collection array
-     title: info.title,
-     description: info.description,
-     img:info.img,
-     kvtime:info.kvtime,
-     eleventyTag: [`videoinfo ` ],
-     outputPath: `videos/${info.videoid}/index.html`,
-     url: `/videos/${info.videoid}/`,
-     eleventyExcludeFromCollections: true
-   });
-
-
-		
-  }
-});
-	
+	 }
 // video info pages
  
 
