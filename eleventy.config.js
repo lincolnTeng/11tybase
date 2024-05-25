@@ -99,7 +99,7 @@ eleventyConfig.addCollection('videoinfo', (collection) => {
   	description: info.description,
       img:info.img,
 	   kvtime:info.kvtime,
-			
+      eleventyTags: ['videoinfo'] ，
 	 outputPath: `videos/${info.videoid}/index.html`, // 单个Video页面路径
       url: `/videos/${info.videoid}/`, // 对应URL路径  
       eleventyExcludeFromCollections: true // 将其从其他集合中排除
@@ -112,8 +112,10 @@ eleventyConfig.addCollection('videoinfo', (collection) => {
 eleventyConfig.addCollection('videoPages', (collection) => {
    const videoEntries = collection.getFilteredByTag('videoinfo');
  
-	
-  return videoEntries.pagination(20);
+	 return collection.pagination(videoEntries, {
+    size: 20 // 每页 20 个条目
+  });
+ // return videoEntries.pagination(20);
  
 });
 
