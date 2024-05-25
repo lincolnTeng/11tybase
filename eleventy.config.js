@@ -90,7 +90,7 @@ module.exports = function(eleventyConfig) {
   });
 
   // add videoinfo collection  for pages & solo video info
-   eleventyConfig.addGlobalData("videoInfo", async () => {
+   eleventyConfig.addGlobalData("vtimeMap", async () => {
 
 		     const workerURL = "https://videokv.fordenzag.workers.dev/all";
 		    const response = await fetch(workerURL);
