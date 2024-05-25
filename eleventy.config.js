@@ -113,9 +113,8 @@ eleventyConfig.addCollection('videoPages', (collection) => {
    const videoEntries = collection.getFilteredByTag('videoinfo');
  
 	
-
-  // 3. 使用pagination集合helper进行分页
-  return videoinfoColl.pagination(20);  
+  return videoEntries.pagination(20);
+ 
 });
 
 	
