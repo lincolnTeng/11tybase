@@ -89,6 +89,29 @@ module.exports = function(eleventyConfig) {
     return data;
   });
 
+  // add videoinfo collection  for pages & solo video info
+
+eleventyConfig.addCollection('videoinfo', (collection) => {
+  for (let info of videoInfo) {
+    collection.addNode({
+      
+	 title: info.title,
+  	description: info.description,
+      img:info.img,
+	   kvtime:info.kvtime,
+			
+	 outputPath: `videos/${info.videoid}/index.html`, // 单个Video页面路径
+      url: `/videos/${info.videoid}/`, // 对应URL路径  
+      eleventyExcludeFromCollections: true // 将其从其他集合中排除
+    });
+  }
+});
+	
+// video info pages
+eleventyConfig.addCollection('videoPages', (collection) => {
+  return collection.getFilteredByGlob('videoInfo').paginate(20);
+});
+	
 	
 	// Customize Markdown library settings:
 	eleventyConfig.amendLibrary("md", mdLib => {
