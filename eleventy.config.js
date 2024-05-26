@@ -89,41 +89,31 @@ module.exports = function(eleventyConfig) {
     return data;
   });
 
-  // add videoinfo collection  for pages & solo video info
-   eleventyConfig.addGlobalData("vtimeMap", async () => {
+  // add vtimeMap    for daily index 
+   eleventyConfig.addGlobalData("vtimeMap24", async () => {
 
-		     const workerURL = "https://videokv.fordenzag.workers.dev/all";
+		    const workerURL = "https://videokv.fordenzag.workers.dev/all";
 		    const response = await fetch(workerURL);
 		    const data = await response.json();
 		 
-						 const vtimemap = {};
+		 			  const vtimemap = {};
 						
 						for (const video of data ) {
-						  const date = new Date(video.kvtime);
-						  const year = date.getFullYear();
-						  const month = date.getMonth() + 1; // Month starts from 0
-						  const day = date.getDate();
-						
-						  const yearKey = `year${year}`;
-						  const monthKey = `${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}`;
-						
-						  if (!vtimemap[yearKey]) {
-						    vtimemap[yearKey] = {};
+										  const date = new Date(video.kvtime);
+							 
+										  const month = date.getMonth() + 1; // Month starts from 0
+										  const day = date.getDate();
+																			 
+										  const dayKey = `${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}`;
+										
+										  if (!vtimemap[dayKey]) {				    vtimemap[dayKey] = {};   }
+				 							 													
+										  vtimemap[dayKey].push(videoid  );
 						  }
-						
-						  if (!vtimemap[yearKey][monthKey]) {
-						    vtimemap[yearKey][monthKey] = [];
-						  }
-
-						  vtimemap[yearKey][monthKey].push(video.videoid);
-						}
 		 				return vtimemap ;
 
 	 }); 
-// video info pages
  
-
-	
 	
 	// Customize Markdown library settings:
 	eleventyConfig.amendLibrary("md", mdLib => {
@@ -142,10 +132,6 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addShortcode("currentBuildDate", () => {
 		return (new Date()).toISOString();
 	});
-
-
-
-
 
 	
 	// Features to make your build faster (when you need them)
