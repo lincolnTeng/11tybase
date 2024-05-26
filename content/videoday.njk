@@ -1,16 +1,21 @@
 ---
 layout: layouts/home.njk
 pagination:
-  data: vtimeMap
+  data: vtimeMap24
   size: 1 
   alias: {dayKey,vids}
 permalink: "/videodaily/{{dayKey | slugify }}/"
 ---
+ 
 
-
-<ul>
-   <li>{{ vi .title}}</li>
-<li>{{ vi .videoid}}</li>
-<li><img src={{vi.img}}></li>
-<li><p>{{vi.desc}}></li>
- </ul>
+      <ul>
+        {% for vid in vids %}
+          <li>
+            <h3>{{ videoInfo[vid].title }}</h3>
+            <p>{{  videoInfo[vid].videoid }}</p>
+ 
+	{% set vUrl %}/videoitem/{{videoInfo[vid].videoid | slugify }}/{% endset %}
+	<li><a href="{{ vUrl }}" class="post-tag">src of {{ videoInfo[vid].title }}</a></li>
+			 
+        {% endfor %}
+      </ul>
