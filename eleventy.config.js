@@ -116,7 +116,7 @@ module.exports = function(eleventyConfig) {
 						                   console.log(  daykey + vtimemap[daykey].count ) ;
 						}
 		           
-					return vtimemap ;
+					return await vtimemap.json() ;
 	 }); 
  
 	
