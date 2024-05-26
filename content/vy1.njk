@@ -7,12 +7,13 @@ eleventyNavigation:
 ---
 
  <ul>
- {% set keys = Object.keys(vtimeMap24) %}
-{% for dkey in keys %}
+{% for dkey, vids in vtimeMap24 %}
+ 
+ 
   <li>   the day :[ {{dkey}}  </li>
   <li>
   
-            {% for  vid  in  vtimeMap24[dkey]   %}
+            {% for  vid  in  vids  %}
           
                         <li>       <h3>{{ videoInfo[ vid].title }}</h3>    </li>
              
