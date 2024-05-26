@@ -113,8 +113,8 @@ module.exports = function(eleventyConfig) {
 														list: ''   
 														}; 
 											}
-				 						  let vcount = vtimemap.daykey.count ;
-										  vtimemap.daykey.list[ vcount].push(video.videoid  );
+			 
+										  vtimemap.daykey.list.push(video.videoid  );
 										   vtimemap.daykey.count ++   ;
 						  
 						}
