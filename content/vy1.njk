@@ -13,12 +13,12 @@ eleventyNavigation:
 			  <li>   the day : {{vdaykey }} and count:no count   </li>
 			
   
-            {% for  vid  in  vidlist %}
+            {% for  vid,vtitle  in  vidlist %}
         				  
-                        <li>       <h3>title:= {{ videoInfo[ vid ].title }}   the vid : {{vid  }} =</h3>    </li>
+                        <li>       <h3>title:= {{ vtitle }}   the vid : {{vid  }} =</h3>    </li>
              
                       {% set vUrl %}/videoitem/{{ vid| slugify }}/{% endset %}
-                    	<li><a href="{{ vUrl }}" class="post-tag">src of {{ videoInfo[vid].title }}</a></li>
+                    	<li><a href="{{ vUrl }}" class="post-tag">src of {{ vtitle }}</a></li>
 						
             {% endfor %}
 				  
