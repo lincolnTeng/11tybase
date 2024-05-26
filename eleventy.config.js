@@ -111,15 +111,7 @@ module.exports = function(eleventyConfig) {
 										  vtimemap[dayKey].push(video.videoid  );
 						  
 						}
-						const varr = [] ; 
-		 				let cont =  0 ;
-		 			   for( let  { vkey, vlist}  of vtimemap ) {
-								varr [cont ] ={   key:vkey , list: vlist } ;
-							 cont ++ ; 
-							 
-						 }
 		 
-		 				return varr  ;
 
 	 }); 
  
