@@ -15,7 +15,7 @@ eleventyNavigation:
   
             {% for  vid  in  vidlist %}
         				  
-                        <li>       <h3>{{ videoInfo[ vid].title }}</h3>    </li>
+                        <li>       <h3>{{ videoInfo[ vid].title }}   the vid : {{vid }} =</h3>    </li>
              
                       {% set vUrl %}/videoitem/{{ videoInfo[vid].videoid | slugify }}/{% endset %}
                     	<li><a href="{{ vUrl }}" class="post-tag">src of {{ videoInfo[vid].title }}</a></li>
