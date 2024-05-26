@@ -106,16 +106,16 @@ module.exports = function(eleventyConfig) {
 																			 
 										  const daykey = `${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}`;
 										
-										  if (!vtimemap.daykey ) {				 
-												vtimemap.daykey = {
+										  if (!vtimemap[daykey] ) {				 
+												vtimemap[daykey] = {
 													 	count:0 ,
 														vkey: daykey ,  
 														list: []   
 														}; 
 											}
 			 
-										  vtimemap.daykey.list.push(video.videoid  );
-										   vtimemap.daykey.count ++   ;
+										  vtimemap[daykey].list.push(video.videoid  );
+										   vtimemap[daykey].count ++   ;
 						  
 						}
 		 
