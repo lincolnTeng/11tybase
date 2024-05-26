@@ -7,13 +7,13 @@ eleventyNavigation:
 ---
 
  <ul>
-{% for vitem in vtimeMap24  %}
+{% for vday,vlist  in vtimeMap24  %}
  
  
-  <li>   the day :[ {{vitem.key  }}]  </li>
+  <li>   the day : {{vday  }}  </li>
   <li>
   
-            {% for  vid  in  vitem.list   %}
+            {% for  vid  in  vlist   %}
           
                         <li>       <h3>{{ videoInfo[ vid].title }}</h3>    </li>
              
