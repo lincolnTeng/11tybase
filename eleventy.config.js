@@ -110,7 +110,7 @@ module.exports = function(eleventyConfig) {
 												vtimemap.daykey = {
 													 	count:0 ,
 														vkey: daykey ,  
-														list: ''   
+														list: []   
 														}; 
 											}
 			 
