@@ -104,11 +104,11 @@ module.exports = function(eleventyConfig) {
 										  const month = date.getMonth() + 1; // Month starts from 0
 										  const day = date.getDate();
 																			 
-										  const dayKey = `${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}`;
+										  const daykey = `${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}`;
 										
-										  if (!vtimemap[dayKey]) {				    vtimemap[dayKey] = [];   }
+										  if (!vtimemap.daykey ) {				    vtimemap.daykey = [];   }
 				 							 													
-										  vtimemap[dayKey].push(video.videoid  );
+										  vtimemap.daykey.push(video.videoid  );
 						  
 						}
 		 
