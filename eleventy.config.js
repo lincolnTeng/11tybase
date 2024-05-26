@@ -112,7 +112,7 @@ module.exports = function(eleventyConfig) {
 						  
 						}
 		 
-
+					return vtimemap ;
 	 }); 
  
 	
