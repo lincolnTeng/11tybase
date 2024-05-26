@@ -106,7 +106,7 @@ module.exports = function(eleventyConfig) {
 																			 
 										  const dayKey = `${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}`;
 										
-										  if (!vtimemap[dayKey]) {				    vtimemap[dayKey] = {};   }
+										  if (!vtimemap[dayKey]) {				    vtimemap[dayKey] = [];   }
 				 							 													
 										  vtimemap[dayKey].push(video.videoid  );
 						  }
