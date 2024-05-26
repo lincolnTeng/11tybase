@@ -1,0 +1,26 @@
+---
+permalink: /vy1/
+layout: layouts/home.njk
+eleventyNavigation:
+  key: Videoyear
+  order: 6
+---
+
+ <ul>
+{% for vday in vtimeMap24 %}
+  <li>   some day </li>
+  <li>
+  
+            {% for  vid  in vday  %}
+          
+                        <li>       <h3>{{ videoInfo[ vid].title }}</h3>    </li>
+             
+                      {% set vUrl %}/videoitem/{{ videoInfo[vid].videoid | slugify }}/{% endset %}
+                    	<li><a href="{{ vUrl }}" class="post-tag">src of {{ videoInfo[vid].title }}</a></li>
+
+            {% endfor %}
+  
+    </li>
+    
+    {% endfor %}
+      </ul>
