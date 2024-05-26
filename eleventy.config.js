@@ -112,13 +112,14 @@ module.exports = function(eleventyConfig) {
 														vkey: daykey ,  
 														list: []   
 														}; 
+												console.log(  'create key ' + daykey ) ;
 											}
 			 
 										  vtimemap[daykey].list.push(video.videoid  );
 										   vtimemap[daykey].count ++   ;
-						  
+						                   console.log(  daykey + vtimemap[daykey].count ) ;
 						}
-		 
+		           
 					return vtimemap ;
 	 }); 
  
