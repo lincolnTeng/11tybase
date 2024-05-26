@@ -7,11 +7,13 @@ eleventyNavigation:
 ---
 
  <ul>
-{% for vday in vtimeMap24 %}
-  <li>   some day </li>
+{% set keys = vtimeMap24.keys()   %}
+
+{% for dkey in keys %}
+  <li>   the day :[ {{dkey}}  </li>
   <li>
   
-            {% for  vid  in vday  %}
+            {% for  vid  in  vtimeMap24[dkey]   %}
           
                         <li>       <h3>{{ videoInfo[ vid].title }}</h3>    </li>
              
@@ -24,3 +26,4 @@ eleventyNavigation:
     
     {% endfor %}
       </ul>
+  {% endset %}
