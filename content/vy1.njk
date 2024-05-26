@@ -14,7 +14,7 @@ pagination:
 
  	{% for vitem  in  vitems %}
 			 <ul>
-			  <li>   the day : {{vitem.vkey }}  </li>
+			  <li>   the day : {{vitem[vkey] }} and count: {{ vitem.count }}  </li>
 			  <li>
   
             {% for  vid  in  vitem.list %}
