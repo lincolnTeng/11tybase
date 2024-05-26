@@ -10,10 +10,10 @@ eleventyNavigation:
 {% for vitem in vtimeMap24  %}
  
  
-  <li>   the day :[ {{vitem.0}}]  </li>
+  <li>   the day :[ {{vitem[0] }}]  </li>
   <li>
   
-            {% for  vid  in  vitem.1  %}
+            {% for  vid  in  vitem[1]  %}
           
                         <li>       <h3>{{ videoInfo[ vid].title }}</h3>    </li>
              
