@@ -3,8 +3,8 @@ layout: layouts/home.njk
 pagination:
   data: vtimeMap
   size: 1 
-  alias: vi
-permalink: "/videoitem/{{vi.videoid | slugify }}/"
+  alias: {dayKey,vids}
+permalink: "/videodaily/{{dayKey | slugify }}/"
 ---
 
 
