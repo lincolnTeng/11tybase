@@ -92,31 +92,11 @@ module.exports = function(eleventyConfig) {
   // add vtimeMap    for daily index 
    eleventyConfig.addGlobalData("vMap", async () => {
 
-		    const workerURL = "https://videokv.fordenzag.workers.dev/all";
+		    const workerURL = "https://videokv.fordenzag.workers.dev/getvmap/";
 		    const response = await fetch(workerURL);
 		    const data = await response.json();
-		 
-		 			  const vtimemap = {};
-						
-						for (const video of data ) {
- 
-										//const daykey = `${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}`;		
-										const daykey = video.kvtime.slice(0, 10);
-										  if (!vtimemap[daykey] ) {				 
-												vtimemap[daykey] = {
-													 	count:0 ,
-														vkey: daykey ,  
-														list: []   
-														}; 
-												console.log(  'create key ' + daykey +   '[kvtime]:'+ video.kvtime ) ;
-											}
-			 
-										  vtimemap[daykey].list.push(video.videoid  );
-										   vtimemap[daykey].count ++   ;
-						                   console.log(  daykey + vtimemap[daykey].count ) ;
-						}
-		           console.log(JSON.stringify( vtimemap) ) ;
-					return  vtimemap ;
+		  
+					return  data ;
 	 }); 
  
 	
