@@ -4,15 +4,11 @@ layout: layouts/home.njk
 eleventyNavigation:
   key: Videoyear
   order: 6
-pagination:
-  data: vtimeMap24
-  size: 10 
-  alias: vitems
 ---
 
    start rendering....<br>
-
- 	{% for vitem  in  vitems %}
+    <p>  o count {{ vtimeMap24[0].count }} </p> 
+ 	{% for vitem  in  vtimeMap24 %}
 			 <ul>
 			  <li>   the day : {{vitem[vkey] }} and count: {{ vitem.count }}  </li>
 			  <li>
