@@ -7,10 +7,11 @@ eleventyNavigation:
 pagination:
   data: vtimeMap24
   size: 100
-  alias: vitem
+  alias: vitems
 ---
 
- 
+           {% for  vitem  in  vitems   %}
+  
  
  <ul>
   <li>   the day : {{vitem.daykey }}  </li>
@@ -27,4 +28,5 @@ pagination:
   
     </li>
   </ul>
+            {% endfor %}
 
