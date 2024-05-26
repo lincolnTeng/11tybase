@@ -7,7 +7,7 @@ eleventyNavigation:
 ---
 
  <ul>
-{% set keys = vtimeMap24.keys()   %}
+{% set keys = vtimeMap24.keys()   %}  
 
 {% for dkey in keys %}
   <li>   the day :[ {{dkey}}  </li>
@@ -17,8 +17,7 @@ eleventyNavigation:
           
                         <li>       <h3>{{ videoInfo[ vid].title }}</h3>    </li>
              
-                      {% set vUrl %}/videoitem/{{ videoInfo[vid].videoid | slugify }}/
-					{% endset %}
+                      {% set vUrl %}/videoitem/{{ videoInfo[vid].videoid | slugify }}/{% endset %}
                     	<li><a href="{{ vUrl }}" class="post-tag">src of {{ videoInfo[vid].title }}</a></li>
 
             {% endfor %}
@@ -27,4 +26,4 @@ eleventyNavigation:
     
     {% endfor %}
       </ul>
-  {% endset %}
+
