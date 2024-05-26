@@ -10,24 +10,21 @@ pagination:
   alias: {vday,vlist}
 ---
 
+ 
+ 
  <ul>
-{% for vday,vlist  in vtimeMap24  %}
- 
- 
   <li>   the day : {{vday  }}  </li>
   <li>
   
             {% for  vid  in  vlist   %}
-          
+        				  
                         <li>       <h3>{{ videoInfo[ vid].title }}</h3>    </li>
              
                       {% set vUrl %}/videoitem/{{ videoInfo[vid].videoid | slugify }}/{% endset %}
                     	<li><a href="{{ vUrl }}" class="post-tag">src of {{ videoInfo[vid].title }}</a></li>
-
+						
             {% endfor %}
   
     </li>
-    
-    {% endfor %}
-      </ul>
+  </ul>
 
