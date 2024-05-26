@@ -96,7 +96,7 @@ module.exports = function(eleventyConfig) {
 		    const response = await fetch(workerURL);
 		    const data = await response.json();
 		 
-		 			  const vtimemap = new Map();
+		 			  const vtimemap = {};
 						
 						for (const video of data ) {
 										  const date = new Date(video.kvtime);
@@ -106,9 +106,16 @@ module.exports = function(eleventyConfig) {
 																			 
 										  const daykey = `${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}`;
 										
-										  if (!vtimemap.daykey ) {				    vtimemap.daykey = [];   }
-				 							 													
-										  vtimemap.daykey.push(video.videoid  );
+										  if (!vtimemap.daykey ) {				 
+												vtimemap.daykey = {
+													 	count:0 ,
+														vkey: daykey ,  
+														list: ''   
+														}; 
+											}
+				 						  let vcount = vtimemap.daykey.count ;
+										  vtimemap.daykey.list[ vcount].push(video.videoid  );
+										   vtimemap.daykey.count ++   ;
 						  
 						}
 		 
