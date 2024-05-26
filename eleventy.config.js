@@ -99,7 +99,7 @@ module.exports = function(eleventyConfig) {
 		 			  const vtimemap = {};
 						
 						for (const video of data ) {
-										const theday= Date.parse( video,kvtime);
+										const theday= Date.parse( video.kvtime);
 										  const date = new Date(theday);
 							 
 										  const month = date.getMonth() + 1; // Month starts from 0
