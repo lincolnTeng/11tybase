@@ -96,7 +96,7 @@ module.exports = function(eleventyConfig) {
 		    const response = await fetch(workerURL);
 		    const data = await response.json();
 		 
-		 			  const vtimemap = new map();
+		 			  const vtimemap = new Map();
 						
 						for (const video of data ) {
 										  const date = new Date(video.kvtime);
