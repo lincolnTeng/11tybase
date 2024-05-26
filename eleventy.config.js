@@ -113,7 +113,7 @@ module.exports = function(eleventyConfig) {
 						}
 						const varr = [] ; 
 		 				let cont =  0 ;
-		 			   for( const vkey, vlist of vtimemap ) {
+		 			   for( let  { vkey, vlist}  of vtimemap ) {
 								varr [cont ] ={   key:vkey , list: vlist } ;
 							 cont ++ ; 
 							 
