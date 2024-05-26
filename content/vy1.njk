@@ -7,16 +7,16 @@ eleventyNavigation:
 pagination:
   data: vtimeMap24
   size: 100
-  alias: {vday,vlist}
+  alias: vitem
 ---
 
  
  
  <ul>
-  <li>   the day : {{vday  }}  </li>
+  <li>   the day : {{vitem.daykey }}  </li>
   <li>
   
-            {% for  vid  in  vlist   %}
+            {% for  vid  in  vitem.list   %}
         				  
                         <li>       <h3>{{ videoInfo[ vid].title }}</h3>    </li>
              
