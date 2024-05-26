@@ -108,7 +108,7 @@ module.exports = function(eleventyConfig) {
 										
 										  if (!vtimemap[dayKey]) {				    vtimemap[dayKey] = {};   }
 				 							 													
-										  vtimemap[dayKey].push(videoid  );
+										  vtimemap[dayKey].push(video.videoid  );
 						  }
 		 				return vtimemap ;
 
