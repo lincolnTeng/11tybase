@@ -99,21 +99,16 @@ module.exports = function(eleventyConfig) {
 		 			  const vtimemap = {};
 						
 						for (const video of data ) {
-										const theday= Date.parse( video.kvtime);
-										  const date = new Date(theday);
-							 
-										  const month = date.getMonth() + 1; // Month starts from 0
-										  const day = date.getDate();
-																			 
-										  const daykey = `${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}`;
-										
+ 
+										//const daykey = `${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}`;		
+										const daykey = video.kvtime.slice(0, 10);
 										  if (!vtimemap[daykey] ) {				 
 												vtimemap[daykey] = {
 													 	count:0 ,
 														vkey: daykey ,  
 														list: []   
 														}; 
-												console.log(  'create key ' + daykey +  'date:'+  date  + '[kvtime]:'+ video.kvtime ) ;
+												console.log(  'create key ' + daykey +   '[kvtime]:'+ video.kvtime ) ;
 											}
 			 
 										  vtimemap[daykey].list.push(video.videoid  );
