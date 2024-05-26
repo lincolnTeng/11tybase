@@ -109,8 +109,17 @@ module.exports = function(eleventyConfig) {
 										  if (!vtimemap[dayKey]) {				    vtimemap[dayKey] = [];   }
 				 							 													
 										  vtimemap[dayKey].push(video.videoid  );
-						  }
-		 				return vtimemap ;
+						  
+						}
+						const varr = [] ; 
+		 				let cont =  0 ;
+		 			   for( const vkey, vlist of vtimemap ) {
+								varr [cont ] ={   key:vkey , list: vlist } ;
+							 cont ++ ; 
+							 
+						 }
+		 
+		 				return varr  ;
 
 	 }); 
  
