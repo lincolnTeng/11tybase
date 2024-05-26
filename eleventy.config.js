@@ -90,7 +90,7 @@ module.exports = function(eleventyConfig) {
   });
 
   // add vtimeMap    for daily index 
-   eleventyConfig.addGlobalData("vtimeMap24", async () => {
+   eleventyConfig.addGlobalData("vMap", async () => {
 
 		    const workerURL = "https://videokv.fordenzag.workers.dev/all";
 		    const response = await fetch(workerURL);
