@@ -1,0 +1,16 @@
+---
+layout: layouts/home.njk
+pagination:
+  data: vtimeMap
+  size: 1 
+  alias: vi
+permalink: "/videoitem/{{vi.videoid | slugify }}/"
+---
+
+
+<ul>
+   <li>{{ vi .title}}</li>
+<li>{{ vi .videoid}}</li>
+<li><img src={{vi.img}}></li>
+<li><p>{{vi.desc}}></li>
+ </ul>
