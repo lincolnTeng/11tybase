@@ -7,13 +7,13 @@ eleventyNavigation:
 ---
 
    start rendering....<br>
-    <p>  o count {{ vMap[0].count }} </p> 
- 	{% for vitem  in  vMap %}
+    <p>  o count  </p> 
+ 	{% for vdaykey,vidlist  in  vMap %}
 			 <ul>
-			  <li>   the day : {{vitem[vkey] }} and count: {{ vitem.count }}  </li>
+			  <li>   the day : {{vdaykey }} and count:no count   </li>
 			  <li>
   
-            {% for  vid  in  vitem.list %}
+            {% for  vid  in  vidlist %}
         				  
                         <li>       <h3>{{ videoInfo[ vid].title }}</h3>    </li>
              
